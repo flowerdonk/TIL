@@ -21,3 +21,19 @@ for i in range(1, len(words)):
     else:
         print(f'incorrect! No.{i+1}')
         break
+
+
+# 다른 방법
+
+words = ["round" , "dream", "magnet" , "tweet" , "tweet", "trick", "kiwi"]
+idx = 0
+word_idx = len(words) - 1 # index는 0부터 시작하기 때문에
+
+while idx < word_idx:
+    idx += 1
+    if words[idx - 1][-1] != words[idx][0] or words[idx] in words[:idx]:
+        print(f'{idx + 1}번째 참가자가 탈락')
+        break
+    elif idx == word_idx: # 만약 아무도 탈락하지 않고 끝까지 진행
+        print('아무도 탈락하지 않았다.')
+
