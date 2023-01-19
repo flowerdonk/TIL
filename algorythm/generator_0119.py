@@ -14,9 +14,16 @@ def is_selfnumber(n):
     return True
 '''
 
+# 제너레이터 모두 출력
 def is_selfnumber(n):
+    check = 0
     for m in range(1, n + 1):
         fn_d = lambda n : sum([int(i) for i in str(n)] + [n])
         if fn_d(m) == n:
-            return False
-    return True
+            print(m)
+            check += 1
+    
+    return check
+
+if not is_selfnumber(int(input())):
+    print('셀프 넘버')
