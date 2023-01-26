@@ -36,5 +36,49 @@ for name in entry:
         else:
             print(f'{name}은 퇴장 기록이 {exit[name] - entry[name]}회 더 많아 수상합니다.')
 
+# 교수님 풀이
 
-        
+entry_record_dict = Counter(entry_record)
+exit_record_dict = Counter(exit_record)
+
+print('입장 기록 많은 Top3')
+
+for name, count in entry_record_dict.most_common(3): # most_common(n) 몇개를 가져올 것인지 결정
+    print(f'{name} {count}회')
+
+entry_record_dict.subtract(exit_record_dict)
+print(entry_record_dict)
+
+print('\n출입 기록이 수상한 사람')
+for name, diff in entry_record_dict.items():
+    if diff > 0:
+        print(f'{name}은 입장 기록이 {diff}회 더 많아 수상합니다.')
+    if diff < 0:
+        print(f'{name}은 입장 기록이 {-diff}회 더 많아 수상합니다.')
+
+# 임포트 없이, Counter 코드 구현
+
+entry_record_dict = {name: 0 for name in set(entry_record)}
+for name in entry_record:
+    entry_record_dict[name] += 1
+
+exit_record_dict = {name: 0 for name in set(exit_record)}
+for name in exit_record:
+    exit_record_dict[name] += 1
+
+sorted_entries = sorted(entry_record_dict.items(), key = lambda item : item[1], reverse=True)
+
+print('입장 기록 많은 Top3')
+# most_common 구현
+for name, count in sorted_entries[:3]:
+    print(f'{name} {count}회')
+
+
+print('\n출입 기록이 수상한 사람')
+# subtract 구현
+for name, count in entry_record_dict.items():
+    diff = count - exit_record_dict[name]
+    if diff > 0:
+        print(f'{name}은 입장 기록이 {diff}회 더 많아 수상합니다.')
+    if diff < 0:
+        print(f'{name}은 입장 기록이 {-diff}회 더 많아 수상합니다.')
