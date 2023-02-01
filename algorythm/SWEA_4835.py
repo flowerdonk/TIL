@@ -3,7 +3,8 @@ def Sub(T, N, Test):
     for i in range(T):
         max = 0
         min = 10000000
-        for j in range(N[i][0] - N[i][1] + 1): # i번째 케이스의 정수 개수 - 구간 수 + 1 까지
+        for j in range(N[i][0] - N[i][1] + 1): 
+            # i번째 케이스의 정수 개수 - 구간 수 + 1 까지
             sum = 0
             for k in range(N[i][1]):
                 sum += Test[i][j + k]
