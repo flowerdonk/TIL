@@ -1,7 +1,20 @@
 def Area(Rects):
     area = 0
-    Rects.sort(key = lambda x : x[0])
-    
+    paper = [[0 for _ in range(101)] for _ in range(101)]
+
+    for i in range(4):
+        x1 = Rects[i][0]
+        y1 = Rects[i][1]
+        x2 = Rects[i][2]
+        y2 = Rects[i][3]
+
+        for j in range(x1, x2):
+            for r in range(y1, y2):
+                paper[j][r] = 1
+
+    for row in paper:
+        area += sum(row)
+
     return area
 
 
