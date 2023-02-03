@@ -5,6 +5,7 @@ def Bus(N, lineA, P, lineN):
         for j in range(lineA[i][0] - 1, lineA[i][1]):
             count[j] += 1
 
+    # 주어진 정류장 번호에 지나는 버스 노선 개수
     for i in range(P):
         result.append(count[lineN[i] - 1])
     return result
