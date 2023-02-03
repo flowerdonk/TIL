@@ -1,8 +1,8 @@
 def Area(Rects):
     area = 0
     Rects.sort(key = lambda x : x[0])
-
-    return Rects
+    
+    return area
 
 
 Rects = [] # 왼쪽아래 x, y, 오른쪽 위 x, y
