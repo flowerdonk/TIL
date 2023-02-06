@@ -29,12 +29,14 @@ def Max(arr):
             if i == r:
                 sum += arr[i][r]
         findMax.append(sum)
-
+    # print(findMax)
     return max(findMax)
 
+result = []
+for _ in range(10):
+    N = int(input())
+    Tcase = [list(map(int, input().split())) for _ in range(100)]
+    result.append(Max(Tcase))
 
 for i in range(10):
-    N = int(input())
-    Tcase = list(map(int, input().split()))
-    arr = [Tcase for r in range(0, 100)]
-    print(Max(arr))
+    print(f'#{i + 1} {result[i]}')
