@@ -11,6 +11,7 @@ def GNS(N, arr):
 
     return result
 
+
 T = int(input())
 
 for i in range(T):
