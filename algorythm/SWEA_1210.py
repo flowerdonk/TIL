@@ -21,33 +21,33 @@ def Ladder(arr):
                     return keep_x
                 else:
                     break
-                
-            if x == 0: # 첫번째 열
-                if arr[y][firstLine[x] + 1] == 1:
-                    keep_y = y # y좌표 저장
-                    x += 1 # x 전 값으로 
-                    y += 1
-                    continue # 다음 x좌표로
-                else:
-                    y += 1
-
-            elif x == len(firstLine) - 1: # 마지막 열
-                if arr[y][firstLine[x] - 1] == 1: # 왼쪽 길
-                    keep_y = y # y좌표 저장
-                    x -= 1
-                    y += 1
-                    continue
-                else:
-                    y += 1
+            #
+            # if x == 0: # 첫번째 열
+            #     if arr[y][firstLine[x] + 1] == 1:
+            #         keep_y = y # y좌표 저장
+            #         x += 1 # x 전 값으로
+            #         y += 1
+            #         continue # 다음 x좌표로
+            #     else:
+            #         y += 1
+            #
+            # elif x == len(firstLine) - 1: # 마지막 열
+            #     if arr[y][firstLine[x] - 1] == 1: # 왼쪽 길
+            #         keep_y = y # y좌표 저장
+            #         x -= 1
+            #         y += 1
+            #         continue
+            #     else:
+            #         y += 1
 
             else:
-                if  arr[y][firstLine[x] + 1] == 1: # 오른쪽 길
+                if x != len(firstLine) - 1 and arr[y][firstLine[x] + 1] == 1: # 오른쪽 길
                     keep_y = y # y좌표 저장
                     x += 1 # x 전 값으로 
                     y += 1
                     continue # 다음 x좌표로
 
-                elif arr[y][firstLine[x] - 1] == 1: # 왼쪽 길
+                elif x != 0 and arr[y][firstLine[x] - 1] == 1: # 왼쪽 길
                     keep_y = y # y좌표 저장
                     x -= 1
                     y += 1
