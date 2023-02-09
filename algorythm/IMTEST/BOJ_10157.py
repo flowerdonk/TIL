@@ -1,53 +1,31 @@
-def Snail(C, R, K):
-    di = [] # i 증감값
-    dj = [] # j 증감값
-    result = (0)
-    if C > R:
-        for n in range(R, 0, -1): # 한쪽 변의 길이 -> 1
-            # 외각 사각형의 경우 1: (1, 0), 2: (0, -1), 3: (-1, 0), 4: (0, 1)
-            for _ in range(n): # (1, 0) or (-1, 0)
-                di.append(1 - 2 * ((R - n) % 2))
-                dj.append(0) # n이 1번째 일 때 +1, 3번째 일 때 -1
-            for _ in range(n): # (0, -1) or (0, 1)
-                di.append(0) # n이 2번째 일 때 +1, 4번째 일 때 -1
-                dj.append(1 - 2 * ((R - n) % 2))
+def Seat(C, R, K):
 
-    elif R > C:
-        for n in range(R, 0, -1): # 한쪽 변의 길이 -> 1
-            # 외각 사각형의 경우 1: (1, 0), 2: (0, -1), 3: (-1, 0), 4: (0, 1)
-            for _ in range(n): # (1, 0) or (-1, 0)
-                di.append(1 - 2 * ((R - n) % 2))
-                dj.append(0) # n이 1번째 일 때 +1, 3번째 일 때 -1
-            for _ in range(n - 2): # (0, -1) or (0, 1)
-                di.append(0) # n이 2번째 일 때 +1, 4번째 일 때 -1
-                dj.append(1 - 2 * ((R - n) % 2))
-
-    else:
-        for n in range(R, 0, -1): # 한쪽 변의 길이 -> 1
-            # 외각 사각형의 경우 1: (1, 0), 2: (0, -1), 3: (-1, 0), 4: (0, 1)
-            for _ in range(n): # (1, 0) or (-1, 0)
-                di.append(1 - 2 * ((R - n) % 2))
-                dj.append(0) # n이 1번째 일 때 +1, 3번째 일 때 -1
-            for _ in range(n - 1): # (0, -1) or (0, 1)
-                di.append(0) # n이 2번째 일 때 +1, 4번째 일 때 -1
-                dj.append(1 - 2 * ((R - n) % 2))
+    if K > C * R:
+        return 0
+    # 이동 오른쪽, 아래, 왼쪽, 위
+    di = [0, 1, 0, -1]
+    dj = [1, 0, -1, 0]
 
     arr = [[0 for _ in range(C)] for _ in range(R)]
+    i, j = 0, 0 # 현재 좌표
+    arr[i][j] = 1 # 첫 번째 대기 순서
+    idx = 0 # 이동방향 인덱스
 
-    i = j = 0
-    for m in range(1, C * R + 1):
-        if m == 1: # 최종값 1
-            arr[R - 1 - i][j] = 1
-        else:
-            # 인덱스를 해당 위치로 이동 -> 값 순차적 대입
-            i += di[m - 1]
-            j += dj[m - 1]
-            arr[R - 1 - i][j] = m
-            if m == K:
-                result = (j + 1, i + 1)
+    for n in range(2, K + 1):
+        while True: # 이동 가능하면 이동, 불가능하면 방향 전환
+            ni = i + di[idx] # 가고자 하는 위치
+            nj = j + dj[idx]
 
-    return result
+            if 0 <= ni < R and 0 <= nj < C and arr[ni][nj] == 0:
+                arr[ni][nj] = n
+                i = ni
+                j = nj
+                break
+            else:
+                idx = (idx + 1) % 4
 
-C, R = map(int, input().split())
+    return (i + 1, j + 1)
+
+R, C = map(int, input().split())
 K = int(input())
-print(*Snail(C, R, K))
+print(Seat(C, R, K))
