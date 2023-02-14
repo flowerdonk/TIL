@@ -1,6 +1,3 @@
-import sys
-sys.stdin = open('input.txt')
-
 def road(v):
     visited[v] += 1
     ans.append(v)
