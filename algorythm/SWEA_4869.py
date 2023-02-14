@@ -1,6 +1,3 @@
-import sys
-sys.stdin = open('input.txt')
-
 def paper(N):
     arr = [1, 3]
 
