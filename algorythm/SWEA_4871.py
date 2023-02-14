@@ -1,6 +1,3 @@
-import sys
-sys.stdin = open('input.txt')
-
 def nod(S):
     visited[S] = 1
 
