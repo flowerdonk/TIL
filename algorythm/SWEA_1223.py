@@ -44,21 +44,36 @@ for i in range(1, T + 1):
 
     postfix = caculate(N, arr)
 
+    ans = ''
     stack = []
     for n in postfix:
         if n.isdecimal():
-            stack.append(n)
+            stack.append(int(n))
         else:
-            n1 = int(stack.pop())
-            n2 = int(stack.pop())
-            if n == '+':
-                stack.append(n2 + n1)
-            elif n == '-':
-                stack.append(n2 - n1)
-            elif n == '*':
-                stack.append(n2 * n1)
-            elif n == '/':
-                stack.append(n2 / n1)
+            if n == '.':
+                if len(stack) == 1:
+                    print(f'#{i} {stack.pop()}')
+                    break
+                else:
+                    print(f'#{i} error')
+                    break
 
-    print(f'#{i} {stack.pop()}')
+            elif len(stack) >= 2:
+                n1 = int(stack.pop())
+                n2 = int(stack.pop())
 
+                if n == '+':
+                    stack.append(n2 + n1)
+                elif n == '-':
+                    stack.append(n2 - n1)
+                elif n == '*':
+                    stack.append(n2 * n1)
+                elif n == '/':
+                    stack.append(n2 // n1)
+                else:
+                    print(f'#{i} error')
+                    break
+
+            else:
+                print(f'#{i} error')
+                break
