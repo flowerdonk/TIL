@@ -25,7 +25,6 @@ def fly(N, M, arr):
                     idx = (idx + 1) % 4 # 방향 변경
 
             result.append(mx) # 총합 리스트에 삽입
-
     return max(result)
 
 T = int(input())
