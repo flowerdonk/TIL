@@ -12,6 +12,7 @@ def code(arr):
                 arr.append(0) # 0 삽입
                 cnt = 0 # 반복문 종료
                 break
+
             else:
                 arr.append(fst - n) # 감소한 수 삽입
 
