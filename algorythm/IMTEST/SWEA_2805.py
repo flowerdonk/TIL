@@ -1,6 +1,7 @@
 def farm(N, arr):
     result = 0
 
+
     return result
 
 T = int(input())
