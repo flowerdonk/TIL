@@ -20,4 +20,5 @@ for i in range(1, T + 1):
     _ = input()
     arr = list(map(int, input().split()))
     code(arr)
+    
     print(f'#{i}', *arr)
