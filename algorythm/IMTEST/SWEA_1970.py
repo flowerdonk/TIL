@@ -7,7 +7,6 @@ def money(N):
     for k in cnt.keys():
         cnt[k] = left // k
         left = left % k
-
     return cnt.values()
 
 T = int(input())
