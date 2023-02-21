@@ -13,7 +13,6 @@ def maze(arr):
     visited[start_x][start_y] = 1
 
     # 인접 지점 찾기
-    # adjL = [[] * N] * N
     direction = [[-1, 0], [0, 1], [1, 0], [0, -1]]
 
     while Q: # 이동 가능한 좌표들 모두 확인
