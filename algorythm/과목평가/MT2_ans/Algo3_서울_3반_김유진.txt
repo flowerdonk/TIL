@@ -1,0 +1,10 @@
+1.
+def inorder(v): # 중위 순회, v = 정점
+    if v: # 정점이 0이 아니면, 즉 자식 정점을 넣었을 때, 그 자식 정점의 자식이 있다면
+        inorder(v.left) # 왼쪽 자식 정점 방문
+        print(v) # 정점 출력
+        inorder(v.right) # 오른쪽 자식 정점 방문
+
+2.
+중위 순회 : B A D C E
+후위 순회 : B D E C A
