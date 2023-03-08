@@ -1,28 +1,113 @@
-.img{
-    padding: 30px 30px 30px 30px;
-    border: 10px solid #810000;
-    border-left: none;
-    border-right: none;
-    border-top: none;
+header{
+    width: 1080px;
+    margin: auto;
+}
+main{
+    width: 1080px;
+    height: 1080px;
+    margin: auto;
+}
+footer{
+    width: 1080px;
+    margin: auto;
+}
+
+.head{
+    height:200px;
+    padding: 10px;
+    display: block; 
+    margin: auto;
+}
+
+
+.main-container{
+    margin: auto;
+    display: grid;
+    grid-template-columns: 330px 740px;
+    grid-template-rows: 1080px;
+    /* height: 1080px; */
+    gap: 10px;
+}
+.content{
+    width: 740px;
+    /* height: 1080px; */
+    display: grid;
+    grid-template-columns: 740px;
+    grid-template-rows: 370px 290px 440px;
+    gap: 10px;
+    margin: auto;
+}
+.profile{
+    background-color: #1B1717;
+    /* height: 1020px; */
+    display: grid;
+    grid-template-columns: 270px;
+    grid-template-rows: 270px 100px 300px 320px;
+    gap: 10px;
+    margin: auto;
+    padding: 30px;
+    border-radius:5px;
 }
 .circle{
     border-radius:50%;
     padding: 10px 10px 10px 10px;
 }
-.square{
-    border-radius:5px;
-}
-.block{
-    padding: 10px 10px 10px 10px;
-}
-.content{
-    background-color: #CE1212;
-    color: #EEEBDD;
-    padding: 10px;
-    margin: 20px 2px 20px 2px;
+.profile > .circle{
+    width: 250px;
 }
 .photo{
-    background-color: #1B1717;
+    width: 700px;
+    height: 330px;
+    border: 10px solid #CE1212;
+    display: grid;
+    grid-template-columns: 233px 233px 233px;
+    grid-template-rows: 330px;
     padding: 10px;
-    margin: 20px 2px 20px 2px;
+    border-radius:5px;
+}
+.square{
+    border-radius:5px;
+    height:330px;
+    display: block;
+    margin: auto;
+}
+.block{
+    padding: 10px 5px 5px 5px;
+    color: #EEEBDD;
+}
+.movie{
+    background-color: #810000;
+    height: 270px;
+    padding: 10px;
+    border-radius:5px;
+}
+.member{
+    background-color: #CE1212;
+    display: grid;
+    grid-template-rows: 380px;
+    grid-template-columns: 144px 144px 144px 144px 144px;
+    height: 380px;
+    padding: 10px;
+    border-radius:5px;
+}
+
+.ball{
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    
+    animation-name: move;
+    animation-duration: 10s;
+    animation-iteration-count: infinite;
+}
+@keyframes move{
+    0% {
+        margin-left: 0px;
+    }
+    50% {
+        margin-left: 1000px;
+    }
+    100% {
+        margin-left: 0px;
+    }
 }
