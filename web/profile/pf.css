@@ -91,6 +91,11 @@ footer{
     border-radius:5px;
 }
 
+.mb{
+    width: 140px;
+    display: block;
+    margin: auto;
+}
 .ball{
     position: absolute;
     width: 100px;
