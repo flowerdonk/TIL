@@ -19,27 +19,26 @@ footer{
     margin: auto;
 }
 
-
+.screen{
+    position: fixed;
+}
 .main-container{
     margin: auto;
     display: grid;
     grid-template-columns: 330px 740px;
     grid-template-rows: 1080px;
-    /* height: 1080px; */
     gap: 10px;
 }
 .content{
     width: 740px;
-    /* height: 1080px; */
     display: grid;
     grid-template-columns: 740px;
-    grid-template-rows: 370px 290px 440px;
+    grid-template-rows: 370px 340px 430px;
     gap: 10px;
     margin: auto;
 }
 .profile{
     background-color: #1B1717;
-    /* height: 1020px; */
     display: grid;
     grid-template-columns: 270px;
     grid-template-rows: 270px 100px 300px 320px;
@@ -49,6 +48,7 @@ footer{
     border-radius:5px;
 }
 .circle{
+    width: 250px;
     border-radius:50%;
     padding: 10px 10px 10px 10px;
 }
@@ -72,35 +72,58 @@ footer{
     margin: auto;
 }
 .block{
-    padding: 10px 5px 5px 5px;
+    padding: 5px 5px 5px 5px;
     color: #EEEBDD;
+    width: 260px;
 }
 .movie{
     background-color: #810000;
-    height: 270px;
+    height: 320px;
     padding: 10px;
     border-radius:5px;
+}
+.floatl{
+    float: left;
+    margin-right: 20px;
+    height: 320px;
+}
+.detail{
+    display: flex;
+    height: 320px;
+    color: #EEEBDD;
+    flex-direction: column;
+    justify-content: space-evenly;
 }
 .member{
     background-color: #CE1212;
     display: grid;
-    grid-template-rows: 380px;
-    grid-template-columns: 144px 144px 144px 144px 144px;
-    height: 380px;
-    padding: 10px;
+    grid-template-rows: 70px 270px;
+    height: 340px;
+    padding: 5px 10px 5px;
     border-radius:5px;
 }
-
+.mem_photo{
+    display: grid;
+    grid-template-rows: 200px 70px;
+    grid-template-columns: 144px 144px 144px 144px 144px;
+}
 .mem{
     width: 140px;
     display: block;
     margin: auto;
 }
+.name{
+    font-size: 20px;
+    color: #EEEBDD;   
+    text-align: center; 
+    margin-top: 7px;
+}
+
 .ball{
     position: absolute;
     width: 100px;
     height: 100px;
-    
+    padding: 10px;
     animation-name: move;
     animation-duration: 10s;
     animation-iteration-count: infinite;
@@ -110,7 +133,7 @@ footer{
         margin-left: 0px;
     }
     50% {
-        margin-left: 1000px;
+        margin-left: 970px;
     }
     100% {
         margin-left: 0px;
