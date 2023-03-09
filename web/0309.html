@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Float</title>
+    <style>
+        .container{
+            background-color: cadetblue;
+            height: 300px;
+            display: flex;
+        }
+        .item{
+            background-color: tan;
+            border: 1px solid black;
+            font-size: 20px;
+            margin-right: 5px;
+        }
+        .order1{
+            order: 1;
+        }
+        .order2{
+            order: 2;
+        }
+        .order3{
+            order: 3;
+        }
+        .grow-1{
+            flex-grow: 1;
+        }
+        .grow-3{
+            flex-grow: 3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="item order1 grow-3">Apple</div>
+        <div class="item order3 grow-1">Bananananananananana</div>
+        <div class="item order2">Melooooooon</div>
+    </div>
+</body>
+</html>
