@@ -122,6 +122,11 @@ footer{
     margin-top: 7px;
 }
 
+.mb{
+    width: 140px;
+    display: block;
+    margin: auto;
+}
 .ball{
     position: absolute;
     width: 100px;
