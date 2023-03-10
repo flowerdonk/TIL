@@ -11,6 +11,9 @@ footer{
     width: 1080px;
     margin: auto;
 }
+.font{
+    font-family:sans-serif;
+}
 
 .head{
     height:200px;
