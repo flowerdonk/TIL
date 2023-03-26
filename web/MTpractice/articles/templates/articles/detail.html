@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>DETAIL</h1>
+  <hr>
+    
+  {% if article.image %}
+    <img src="{{article.image.url}}" alt="{{article.image}}">
+  {% endif %}
+  <p>Title : {{article.title}}</p>
+  <p>Category : {{article.category}}</p>
+  <p>Content : {{article.content}}</p>
+  <p>Create : {{article.created_at}}</p>
+  <p>Update : {{article.updated_at}}</p>
+  <a href="{% url 'articles:update' article.pk %}">update</a>
+  <hr>
+  <form action="{% url 'articles:delete' article.pk%}" method="POST">
+    {% csrf_token %}
+    <input type="submit" value="DELETE">
+  </form>
+  <a href="{% url 'articles:index' %}">BACK</a>
+{% endblock content %}
