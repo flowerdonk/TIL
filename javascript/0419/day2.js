@@ -20,6 +20,7 @@ const arrow = (a, b) => {
   return ans + b
 }
 
+// forEach 연습
 const colors = ['red', 'blue', 'green']
 
 printFunc = function (color){
@@ -28,6 +29,8 @@ printFunc = function (color){
 
 colors.forEach(printFunc)
 
+
+// 3제곱 구하기
 const nums = [1, 2, 3, 4]
 
 const sq = function (num){
@@ -37,6 +40,8 @@ const sq = function (num){
 const sqnums = nums.map(sq)
 console.log(sqnums)
 
+
+// 피라미드 별 찍기
 for (let i = 0; i < 5; i++){
   for (let blank = 1; blank < 5 - i; blank++){
     console.log(' ')
@@ -46,9 +51,27 @@ for (let i = 0; i < 5; i++){
   }
 }
 
-for (let blank = 1; blank < 5; blank++){
-  console.log(' ')
+const inputs = [
+  [3, 10, 5, [1, 3, 5, 7, 9]],    // 3
+  [3, 10, 5, [1, 3, 7, 8, 9]],    // 0
+  [5, 20, 5, [4, 7, 9, 14, 17]],  // 4
+]
+
+function solution(K, N, M, chargers) {
+  // solution 함수 완성
+  let start = 0
+  let idx = 0
+  while (start < N){
+    if (start + K == chargers[idx]){
+      start += K
+      idx += 1
+    }
+    else if(){
+      
+    }
+  }
 }
-for (let star = 1; star < 2; star++){
-  console.log('*')
+
+for (const input of inputs) {
+  solution(input[0], input[1], input[2], input[3])
 }
