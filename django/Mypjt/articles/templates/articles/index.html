@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>INDEX</h1>
+  {% if request.user.is_authenticated %}
+    <a href="{% url 'articles:create' %}">create</a>
+  {% else %}
+    <a href="{% url 'accounts:login' %}">Login to create</a>
+  {% endif %}
+  <hr>
+    
+  {% for article in articles %}
+    <p>Title : {{article.title}}</p>
+    <a href="{% url 'articles:detail' article.pk%}">details</a>
+    <hr>
+  {% endfor %}
+  {% endblock content %}
