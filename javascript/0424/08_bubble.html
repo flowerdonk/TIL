@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .box{
+      border: 1px solid black;
+      width: 400px;
+      height: 400px;
+    }
+  </style>
+</head>
+<body>
+  <div id="parent" class="box">
+    <div id="child" class="box">
+      <div id="grandChild" class="box">
+        <form action="" id="test_form">
+          <input type="submit" value="" id="submit_btn"></input>
+        </form>
+      </div>
+    </div>
+  </div>
+  <!-- preventdefault 사용 -> 이벤트의 전파를 막는 방법 -->
+  <script>  
+    const parent = document.getElementById('parent')
+    const child = document.getElementById('child')
+    const grandChild = document.getElementById('grandChild')
+
+    const test_form = document.getElementById('test_form')
+
+    // test_form.addEventListener('submit', function(event){
+    //   event.preventDefault()
+    //   console.log('grandChild 클릭')
+    // })
+
+    parent.addEventListener('click', function(){
+      console.log('parent 클릭')
+    })
+    child.addEventListener('click', function(){
+      console.log('child 클릭')
+    })
+    grandChild.addEventListener('click', function(event){
+      event.stopPropagation() // 전파를 막는 함수
+      console.log('grandChild 클릭')
+    })
+  </script>
+</body>
+</html>
