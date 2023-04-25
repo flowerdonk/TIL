@@ -1,0 +1,56 @@
+<!--출력되는 강아지 품종을 함께 출력해보세요!-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+<button id="getBreed" style="position: fixed; width: 100%; height: 55px;">get Breed</button>
+<div id="wrapper" style="margin-top: 20px;"></div>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.20/lodash.min.js"></script>
+  <script>
+    
+    let breeds = null
+    let idx = 0
+    
+    const getBreed = document.getElementById('getBreed')
+    
+    const box = document.createElement('div')
+    box.setAttribute('style', 'container; display:flex; flex-wrap:wrap; text-align: center;')
+    const body = document.getElementById('wrapper')
+    body.appendChild(box)
+    getBreed.addEventListener('click', function(){
+      axios({
+        url: 'https://dog.ceo/api/breeds/list/all'
+      }).then((res)=>{
+        breeds = res.data.message
+        idx = _.random(0, Object.keys(breeds).length)
+        get_by_breed()
+      })
+    })
+    function get_by_breed(){
+      const breed = Object.keys(breeds)[idx]
+      axios.get(`https://dog.ceo/api/breed/${breed}/images`).then((res)=>{
+        const img_tag = document.createElement('img')
+        const random_num = _.random(0, res.data.message.length)
+        const breed_name = document.createElement('div')
+        breed_name.innerText = breed
+
+        const complex = document.createElement('span')
+        img_tag.setAttribute('src', res.data.message[random_num])
+        img_tag.setAttribute('style', 'width:400px; height:400px;')
+        breed_name.setAttribute('style', 'width:400px;')
+        complex.appendChild(img_tag)
+        complex.appendChild(breed_name)
+        box.appendChild(complex)
+      })
+    }
+      </script>
+</body>
+</html>

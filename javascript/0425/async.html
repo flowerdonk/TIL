@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    console.log('hi')
+    new Promise(function(resolve){
+      setTimeout(function(){
+        console.log('ssafy')
+        resolve('bye')
+      }, 3000)
+    }).then(function(resolve){
+      console.log(resolve)
+    })
+
+    
+    /*
+    let breed_list = null
+    
+    axios({
+      url: 'breed_list',
+      data: {},
+      header: {},
+    }).then((res) => {
+      breed_list = res
+    })
+
+    axios({
+      url: '',
+      data: {},
+      header: {},
+    })
+    
+    const base_url = ''
+    '${base_url}/breed/list/' // ===base_url + 'breed/list/'
+    */
+    </script>
+</body>
+</html>
