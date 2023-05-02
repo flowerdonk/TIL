@@ -9,9 +9,12 @@
 <body>
   <!-- 1. Text interpolation -->
   <div id="app">
-    <p>메시지: {{ msg }}</p>   
+    <p>메시지: {{ msg }}</p>
+    <!-- rawHTML가 텍스트로 들어감 -> 문자열로 바인딩 -->
     <p>HTML 메시지 : {{ rawHTML }}</p>
+    <!-- rawHTML가 태그로 들어감 -->
     <p>HTML 메시지 : <span v-html="rawHTML"></span></p>
+    <!-- 텍스트 뒤집기 -->
     <p>{{ msg.split('').reverse().join('') }}</p>
   </div>
 

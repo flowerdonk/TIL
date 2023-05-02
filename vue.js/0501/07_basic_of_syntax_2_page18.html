@@ -8,8 +8,8 @@
 </head>
 <body>
   <!-- 3. v-for -->
-  <!-- <div id="app">
-    <h2>1. String</h2>
+  <div id="app">
+    <!-- <h2>1. String</h2>
     <div v-for="char in myStr">
       {{ char }}
     </div>
@@ -27,14 +27,14 @@
 		  <p>{{ item.name }}</p>
     </div> -->
 
-    <!-- <h2>3. Object</h2>
+    <h2>3. Object</h2>
     <div v-for="value in myObj">
       <p>{{ value }}</p>
     </div>
 
     <div v-for="(value, key) in myObj" :key="key">
       <p>{{ key }} : {{ value }}</p>
-    </div> -->
+    </div>
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
@@ -46,20 +46,20 @@
         // myStr: 'Hello, World!',
 
         // 2-1. Array
-        // myArr: ['python', 'django', 'vue.js'],
+        myArr: ['python', 'django', 'vue.js'],
 
         // 2-2. Array with Object
-        // myArr2: [
-        //   { id: 1, name: 'python', completed: true},
-        //   { id: 2, name: 'django', completed: true},
-        //   { id: 3, name: 'vue.js', completed: false},
-			  // ],
+        myArr2: [
+          { id: 1, name: 'python', completed: true},
+          { id: 2, name: 'django', completed: true},
+          { id: 3, name: 'vue.js', completed: false},
+			  ],
         
         // 3. Object
-        // myObj: {
-        //   name: 'harry',
-        //   age: 27
-        // },
+        myObj: {
+          name: 'harry',
+          age: 27
+        },
       }
     })
   </script>
