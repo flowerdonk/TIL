@@ -1,8 +1,7 @@
 <template>
-  <div>
-    <h1>This is SearchBar</h1>
-    <input type="text" class="border-primary rounded" v-model="inputData">
-    <button type="submit" class="btn btn-primary rounded">검색</button>
+  <div class="text-center">
+    <input type="text" class="border-primary rounded" v-model="searchData">
+    <button class="btn btn-primary rounded" @click="getSearchData">검색</button>
   </div>
 </template>
 
@@ -11,7 +10,12 @@ export default {
   name: 'SearchBar',
   data () {
     return {
-      inputData: '',
+      searchData: null,
+    }
+  },
+  methods: {
+    getSearchData() {
+      this.$emit('search-data', this.searchData)
     }
   }
 }

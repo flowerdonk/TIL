@@ -1,11 +1,14 @@
+<!-- [1] LoginView 생성 -->
+
 <template>
   <div>
+    <h1>This is Login Page</h1>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'VideoListItem',
+  name: 'LoginView'
 }
 </script>
 

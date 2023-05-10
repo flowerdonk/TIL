@@ -1,8 +1,12 @@
 <template>
   <div class="d-flex flex-column">
     <h1 class="text-primary text-center">SSAFY TUBE</h1>
-    <SearchBar/>
-    <VideoList/>
+    <SearchBar
+      @search-data="getSearchData"
+    />
+    <VideoList
+      :searchData="searchData"
+    />
     <VideoDetail/>
   </div>
 </template>
@@ -18,6 +22,16 @@ export default {
     VideoDetail,
     VideoList,
     SearchBar,
+  },
+  data() {
+    return {
+      searchData: 'ssafy',
+    }
+  },
+  methods: {
+    getSearchData(input) {
+      this.searchData = input
+    }
   }
 }
 </script>
