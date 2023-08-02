@@ -1,13 +1,15 @@
 package com.example.redis_practice.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
+
+import java.io.Serializable;
 
 @Getter
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class ChatMessage {
+@ToString
+public class ChatMessage implements Serializable {
     private String sender;
     private String context;
 }

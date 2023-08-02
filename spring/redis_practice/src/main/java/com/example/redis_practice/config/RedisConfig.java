@@ -29,7 +29,8 @@ public class RedisConfig {
         RedisTemplate<String, Object> redisTemplate = new RedisTemplate<>();
         redisTemplate.setConnectionFactory(redisConnectionFactory());
         redisTemplate.setKeySerializer(new StringRedisSerializer());
-        redisTemplate.setValueSerializer(new Jackson2JsonRedisSerializer<>(ChatMessage.class));
+//        redisTemplate.setValueSerializer(new Jackson2JsonRedisSerializer<>(ChatMessage.class));
+        redisTemplate.setValueSerializer(new Jackson2JsonRedisSerializer<>(String.class));
         return redisTemplate;
     }
 
@@ -38,11 +39,11 @@ public class RedisConfig {
     * 스프링에서 비동기 메시지를 지원하는 마지막 컴포넌트
     * 정해진 채널로 들어온 메시지를 처리할 action을 정의
     * */
-    @Bean
-    MessageListenerAdapter messageListenerAdapter() {
-        System.out.println("RedisConfig.messageListenerAdapter");
-        return new MessageListenerAdapter(new RedisSubService());
-    }
+//    @Bean
+//    MessageListenerAdapter messageListenerAdapter() {
+//        System.out.println("RedisConfig.messageListenerAdapter");
+//        return new MessageListenerAdapter(new RedisSubService());
+//    }
 
     // 컨테이너 설정
     /*
@@ -56,15 +57,15 @@ public class RedisConfig {
         System.out.println("RedisConfig.redisContainer");
         RedisMessageListenerContainer container = new RedisMessageListenerContainer();
         container.setConnectionFactory(redisConnectionFactory());
-        container.addMessageListener(messageListenerAdapter(), topic());
+//        container.addMessageListener(messageListenerAdapter(), topic());
         return container;
     }
 
 
     // pub/sub 토픽 설정
-    @Bean
-    ChannelTopic topic() {
-        System.out.println("RedisConfig.topic");
-        return new ChannelTopic("topic1");
-    }
+//    @Bean
+//    ChannelTopic topic() {
+//        System.out.println("RedisConfig.topic");
+//        return new ChannelTopic("topic1");
+//    }
 }
