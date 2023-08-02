@@ -1,13 +1,13 @@
-package com.example.redis_practice;
+package com.example.springboot;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class RedisPracticeApplicationTests {
+class SpringbootApplicationTests {
 
-    @Test
-    void contextLoads() {
-    }
+	@Test
+	void contextLoads() {
+	}
 
 }
