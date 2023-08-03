@@ -1,5 +1,6 @@
 package com.example.redis_practice.service;
 
+import com.example.redis_practice.entity.Alarm;
 import com.example.redis_practice.entity.ChatMessage;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
@@ -44,6 +45,7 @@ public class RedisSubService implements MessageListener {
         try {
             String body = (String) redisTemplate.getStringSerializer().deserialize(message.getBody());
             ChatMessage chatMessage = mapper.readValue(body, ChatMessage.class);
+//            Alarm alarm = new Alarm()
             System.out.println("받은 메시지 = " + message);
             System.out.println("chatMessage.getSender() = " + chatMessage.getSender());
             System.out.println("chatMessage.getContext() = " + chatMessage.getContext());
