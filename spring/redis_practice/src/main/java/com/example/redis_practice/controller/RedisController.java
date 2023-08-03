@@ -1,5 +1,6 @@
 package com.example.redis_practice.controller;
 
+import com.example.redis_practice.entity.Alarm;
 import com.example.redis_practice.entity.ChatMessage;
 import com.example.redis_practice.service.RedisPubService;
 import com.example.redis_practice.service.RedisSubService;
@@ -60,7 +61,7 @@ public class RedisController {
     @PostMapping("/chat/{topicName}")
     public void pushMessage(@PathVariable String topicName, @RequestParam(name = "sender") String sender, @RequestParam(name = "context") String context) {
         ChannelTopic channel = channels.get(topicName);
-        redisPubService.publish(channel, ChatMessage.builder().sender(sender).context(context).build());
+        redisPubService.publish(channel, Alarm.builder().sender(sender).context(context).build());
     }
 
     // Topic 삭제 후 Listener 해제, Topic Map에서 삭제
