@@ -15,19 +15,19 @@ import java.util.concurrent.TimeUnit;
 @Repository
 public class AlarmRedisRepository {
 
-    private final RedisTemplate<String, Object> redisTemplate;
+    private final RedisTemplate<String, Alarm> redisTemplate;
 
-    public AlarmRedisRepository(RedisTemplate<String, Object> redisTemplate) {
+    public AlarmRedisRepository(RedisTemplate<String, Alarm> redisTemplate) {
         this.redisTemplate = redisTemplate;
     }
 
-    public void save(String memberId, Object object) {
-        redisTemplate.opsForList().leftPush(memberId, object);
+    public void save(String memberId, Alarm alarm) {
+        redisTemplate.opsForList().leftPush(memberId, alarm);
         // TTL 설정 - 24시간
         redisTemplate.expire(memberId, 86400, TimeUnit.SECONDS);
     }
 
-    public List<Object> findByMemberId(String memberId) {
+    public List<Alarm> findByMemberId(String memberId) {
         return redisTemplate.opsForList().range(memberId, 0, -1);
     }
 }

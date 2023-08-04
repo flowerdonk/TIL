@@ -18,12 +18,12 @@ import java.util.List;
 @Service
 @RequiredArgsConstructor
 public class RedisSubService implements MessageListener {
-//    public static List<String> messageList = new ArrayList<>();
-    private final RedisTemplate<String, Object> redisTemplate;
+    //    public static List<String> messageList = new ArrayList<>();
+    private final RedisTemplate<String, Alarm> redisTemplate;
     // ObjectMaper.readValue를 사용해서 JSON을 파싱해서 자바 객체(ChatMessage.Class)로 바꿔줌
     private final ObjectMapper mapper = new ObjectMapper();
 
-//    private AlarmRedisRepository alarmRedisRepository;
+    //    private AlarmRedisRepository alarmRedisRepository;
 
     // 메시지를 subscribe했을 때 수행할 메서드
     /*
@@ -58,7 +58,7 @@ public class RedisSubService implements MessageListener {
 //            alarmRedisRepository.save("sender", alarm);
 //            String serializedAlarm = (String) redisTemplate.getStringSerializer().serialize(alarm);
             redisTemplate.opsForList().rightPush("subscriber", alarm);
-            RedisOperations<String, Object> operations = redisTemplate.opsForList().getOperations();
+            RedisOperations<String, Alarm> operations = redisTemplate.opsForList().getOperations();
             System.out.println(operations.opsForList().range("subscriber", 0, -1));
 
         } catch (Exception e) {

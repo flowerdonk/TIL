@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service;
 public class RedisPubService {
 //    private final RedisTemplate<String, Object> redisTemplate;
     @Autowired
-    private RedisTemplate<String, Object> redisTemplate;
+    private RedisTemplate<String, Alarm> redisTemplate;
 
 //    public void sendMessage(ChatMessage chatMessage) {
 //        System.out.println("RedisPubService.sendMessage");

@@ -37,6 +37,7 @@ public class RedisController {
     // topic 이름으로 topic 정보를 가져와 메시지를 발송할 수 있도록 Map에 저장
     private Map<String, ChannelTopic> channels;
 
+
     @PostConstruct
     public void init() {
         // topic 정보를 담을 Map을 초기화

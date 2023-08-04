@@ -23,8 +23,8 @@ public class AlarmController {
     }
 
     @GetMapping("/alarms/{memberId}")
-    public ResponseEntity<List<Object>> getAlarmsByMemberId(@PathVariable String memberId) {
-        List<Object> alarms = alarmRedisRepository.findByMemberId(memberId);
+    public ResponseEntity<List<Alarm>> getAlarmsByMemberId(@PathVariable String memberId) {
+        List<Alarm> alarms = alarmRedisRepository.findByMemberId(memberId);
         return ResponseEntity.ok(alarms);
     }
 }
