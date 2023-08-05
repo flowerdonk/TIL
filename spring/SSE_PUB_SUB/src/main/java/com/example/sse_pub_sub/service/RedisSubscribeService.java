@@ -27,10 +27,7 @@ public class RedisSubscribeService implements MessageListener {
     public void onMessage(Message message, byte[] pattern) {
         try {
             Alarm alarm = mapper.readValue(message.getBody(), Alarm.class);
-            redisTemplate.opsForList().rightPush("subscriber", alarm); // redisTemplate을 거쳐 레디스에 key(subscriber):list(alarm) 형태로 저장
-            // 리스트로 잘 들어갔는지 확인
-            RedisOperations<String, Alarm> operations = redisTemplate.opsForList().getOperations();
-            System.out.println("subscriber alarm list = " + operations.opsForList().range("subscriber", 0, -1));
+            redisTemplate.opsForList().rightPush("test", alarm); // redisTemplate을 거쳐 레디스에 key(subscriber):list(alarm) 형태로 저장
         } catch (Exception e) {
             e.printStackTrace();
         }

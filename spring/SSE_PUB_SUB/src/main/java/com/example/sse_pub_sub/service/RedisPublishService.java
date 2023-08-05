@@ -2,6 +2,7 @@ package com.example.sse_pub_sub.service;
 
 import com.example.sse_pub_sub.entity.Alarm;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.listener.ChannelTopic;
 import org.springframework.stereotype.Service;
@@ -10,6 +11,7 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class RedisPublishService {
 
+    @Autowired
     private RedisTemplate<String, Alarm> redisTemplate;
 
     /*

@@ -1,9 +1,7 @@
 package com.example.sse_pub_sub.dto.response;
 
 import com.example.sse_pub_sub.entity.Alarm;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 @Getter
 @Setter
