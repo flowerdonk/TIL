@@ -1,7 +1,9 @@
 package com.example.sse_pub_sub.controller;
 
 
+import com.example.sse_pub_sub.dto.response.AlarmResponse;
 import com.example.sse_pub_sub.dto.response.AlarmResponseList;
+import com.example.sse_pub_sub.entity.Alarm;
 import com.example.sse_pub_sub.service.AlarmService;
 import com.example.sse_pub_sub.service.RedisPublishService;
 import com.example.sse_pub_sub.service.RedisSubscribeService;
@@ -12,6 +14,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
+import java.util.Set;
 
 @RestController
 @RequiredArgsConstructor
@@ -24,25 +27,26 @@ public class AlarmController {
     // 알림 서비스
     private final AlarmService alarmService;
 
-    @PutMapping("/{topicName}")
+    @PutMapping("/topic/{topicName}")
     public ResponseEntity<Void> createTopic(@PathVariable String topicName) {
         final String topic = alarmService.createTopic(topicName);
         return ResponseEntity.created(URI.create("api/alarms/" + topic)).build();
     }
 
-    @PostMapping("/{topicName}")
-    public ResponseEntity<Void> pushAlarm(@PathVariable String topicName, @RequestParam(name = "sender") String sender, @RequestParam(name = "context") String context) {
-        final String alarm = alarmService.pushAlarm(topicName, sender, context);
-        return ResponseEntity.created(URI.create("api/alarms/" + alarm)).build();
+    @PostMapping("/topic/{topicName}")
+    @ResponseStatus(HttpStatus.CREATED)
+    public void pushAlarm(@PathVariable String topicName, @RequestParam(name = "sender") String sender, @RequestParam(name = "context") String context) {
+        alarmService.pushAlarm(topicName, sender, context);
     }
 
-    @DeleteMapping("/{topicName}")
+    @DeleteMapping("/topic/{topicName}")
+    @ResponseStatus(HttpStatus.OK)
     public void deleteTopic(@PathVariable String topicName) {
         alarmService.deleteTopic(topicName);
     }
 
-    @GetMapping("/{userId}")
-    public ResponseEntity<AlarmResponseList> getAlarmList(@PathVariable String userId) {
-        return ResponseEntity.ok(alarmService.getAlarmList(userId));
+    @GetMapping("/{memberId}")
+    public ResponseEntity<AlarmResponseList> getAlarmList(@PathVariable String memberId) {
+        return ResponseEntity.ok(alarmService.getAlarmList(memberId));
     }
 }

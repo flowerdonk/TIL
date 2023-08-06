@@ -9,6 +9,8 @@ import org.springframework.data.redis.core.RedisOperations;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 
+import java.util.concurrent.TimeUnit;
+
 @Service
 @RequiredArgsConstructor
 public class RedisSubscribeService implements MessageListener {
@@ -26,8 +28,10 @@ public class RedisSubscribeService implements MessageListener {
     @Override
     public void onMessage(Message message, byte[] pattern) {
         try {
-            Alarm alarm = mapper.readValue(message.getBody(), Alarm.class);
-            redisTemplate.opsForList().rightPush("test", alarm); // redisTemplate을 거쳐 레디스에 key(subscriber):list(alarm) 형태로 저장
+            Alarm alarm = mapper.readValue(message.getBody(), Alarm.class); // 받은 메시지 Alarm 객체로 역직렬화
+            String key = "member:" + "receiver" + ":alarm:" + alarm.getId(); // key 설정 -> member:memberId:alarm:alarmId
+            redisTemplate.opsForValue().set(key, alarm); // 레디스에 저장
+            redisTemplate.expire(key, 1, TimeUnit.MINUTES); // TTL 설정
         } catch (Exception e) {
             e.printStackTrace();
         }
