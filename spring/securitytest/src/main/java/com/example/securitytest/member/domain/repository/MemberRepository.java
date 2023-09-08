@@ -8,4 +8,6 @@ import org.springframework.stereotype.Repository;
 public interface MemberRepository extends JpaRepository<Member, Long> {
 
     Member getByUuid(String uuid);
+
+    Member getByNickname(String nickname);
 }

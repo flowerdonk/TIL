@@ -7,6 +7,7 @@ import lombok.Setter;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import java.util.List;
 
 @Getter
 @Setter
@@ -24,9 +25,11 @@ public class SignUpRequestDto {
     private int age;
     private int gender;
     private String fcmToken;
+    private List<String> roles;
+//    private String role;
 
     @Builder
-    public SignUpRequestDto(String password, String nickname, boolean isDeleted, int height, int weight, int age, int gender, String fcmToken) {
+    public SignUpRequestDto(String password, String nickname, boolean isDeleted, int height, int weight, int age, int gender, String fcmToken, List<String> roles) {
         this.password = password;
         this.nickname = nickname;
         this.isDeleted = isDeleted;
@@ -35,5 +38,6 @@ public class SignUpRequestDto {
         this.age = age;
         this.gender = gender;
         this.fcmToken = fcmToken;
+        this.roles = roles;
     }
 }
